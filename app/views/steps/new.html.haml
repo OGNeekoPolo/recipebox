@@ -1,0 +1,9 @@
+%fieldset
+  %legend Add Recipe Steps
+  = form_for :step do |s|
+    %p
+      = s.label :description
+      %br/
+      = s.text_area :description
+    %p
+      = s.submit "Complete Recipe"

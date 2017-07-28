@@ -1,0 +1,13 @@
+%fieldset
+  %legend Add Fixin
+  = form_for :fixin do |f|
+    %p
+      = f.label :name
+      %br/
+      = f.text_field :name
+    %p
+      = f.label :amount
+      %br/
+      = f.text_field :amount
+    %p
+      = f.submit "Next Step"

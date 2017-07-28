@@ -1,0 +1,9 @@
+%h1 Edit Recipe Step
+
+= form_for :step do |s|
+  %p
+    = s.label :description
+    %br/
+    = s.text_area :description
+  %p
+    = s.submit "Save Step"

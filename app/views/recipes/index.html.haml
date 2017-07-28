@@ -1,0 +1,14 @@
+%h1 Welcome to RecipeBox
+
+= link_to 'Add Recipe', new_recipe_path
+= form_tag(recipes_path, :method => "get", id: "search-form") do
+  = text_field_tag :search, params[:search], placeholder: "Search Recipes"
+  = submit_tag "Search", :name => nil
+%hr/
+- @recipes.each do |recipe|
+  %fieldset
+    %h3= recipe.title
+    %p= recipe.description
+    = link_to 'Show Full Recipe', recipe_path(recipe)
+    %br/
+    = link_to 'Delete Recipe', recipe_path(recipe), method: :delete, data: {confirm: 'Are You Sure?'}

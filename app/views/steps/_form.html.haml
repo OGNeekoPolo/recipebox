@@ -1,0 +1,7 @@
+= form_for :step, url: steps_new_path do |s|
+  %p
+    = s.label :description
+    %br/
+    = s.text_area :description
+  %p
+    = s.submit "Add Step"

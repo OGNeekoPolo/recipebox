@@ -1,0 +1,11 @@
+= form_for :fixin, url: new_fixin_path do |f|
+  %p
+    = f.label :name
+    %br/
+    = f.text_field :name
+  %p
+    = f.label :amount
+    %br/
+    = f.text_field :amount
+  %p
+    = f.submit "Add Step"

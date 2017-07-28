@@ -1,0 +1,30 @@
+%h1 Recipe Box
+
+= link_to 'Back', recipes_path
+%hr/
+%fieldset
+  %legend Recipe Profile
+  %h3= @recipe.title
+  %p= @recipe.description
+  %br/
+  = link_to 'Edit Info', edit_recipe_path
+  %h4 Add Fixins
+  = render :partial => 'fixins/form'
+  %div
+    %h5 Fixins Needed
+    - @fixins.each do |fixin|
+      - if fixin.recipe_id == @recipe.id
+        %p
+          = "#{fixin.amount} of #{fixin.name}"
+          = link_to 'Edit Fixin', edit_fixin_path(fixin)
+          = link_to 'Delete Fixin', fixin_path(fixin), method: :delete, data: {confirm: 'Delete Fixin?'}
+  %br/
+  %h4 Add Recipe Steps
+  = render :partial => 'steps/form'
+  %div
+    %h3 Recipe Steps
+    - @steps.each do |step|
+      - if step.recipe_id == @recipe.id
+        %p= step.description
+        = link_to 'Edit Steps', edit_step_path(step)
+        = link_to 'Delete Step', step_path(step), method: :delete, data: {confirm: 'Delete Recipe Step?'}
